@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
+import DeleteProduct from './DeleteProduct';
 import formatMoney from '../lib/formatMoney';
 
 export default function Product({ product }) {
@@ -16,6 +17,19 @@ export default function Product({ product }) {
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
+      <div className="buttonlist">
+        <Link
+          href={{
+            pathname: 'update',
+            query: {
+              id: product.id,
+            },
+          }}
+        >
+          Edit ✏
+        </Link>
+      </div>
+      <DeleteProduct id={product.id}>Delete</DeleteProduct>
     </ItemStyles>
   );
 }
