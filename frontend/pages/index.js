@@ -1,7 +1,1 @@
-import React from 'react'
-
-export default function IndexPage() {
-  return (
-    <div>This is index page</div>
-  )
-}
+export { default } from './products/index';
